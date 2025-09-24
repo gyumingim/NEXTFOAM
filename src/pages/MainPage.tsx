@@ -579,8 +579,8 @@ function PartnerGrid() {
 
 function Footer() {
   return (
-    <div className="w-full py-16 mt-[7rem]">
-      <div className="max-w-7xl mx-auto">
+    <div className="w-full py-[4rem] mt-[10rem]">
+      <div className="">
         {/* Main Footer Section */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
           {/* Left Column - Brand & Mission */}
