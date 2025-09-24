@@ -4,7 +4,7 @@ import Header from "../components/Header"
 export default function MainPage() {
   return (
     <Layout>
-      <div className="w-full h-[calc(100vh)] overflow-y-auto scroll-smooth no-scrollbar">
+      <div className="w-full h-[calc(100vh)] overflow-y-auto scroll-smooth no-scrollbar bg-black">
         <Container heightRatio={20} bgColor="#000000" fullBleed>
           <Header />
 
@@ -261,7 +261,7 @@ export default function MainPage() {
 
         
 
-        <Container heightRatio={20} bgColor="#FFFFFF">
+        <Container heightRatio={20} bgColor="#F9F9F9">
           <div className="w-full h-full flex flex-col">
             {/* Header */}
             <div className="flex justify-between items-center mt-24 mb-[4rem]">
@@ -446,14 +446,14 @@ export default function MainPage() {
         </Container>
 
 
-        <Container heightRatio={110} bgColor="#F9F9F9">
+        <Container heightRatio={110} bgColor="#FFFFFF">
           <div className="w-full h-full flex flex-col">
             <div className="text-[2.5rem] font-[700] text-black mb-[3rem] mt-[4rem]">Our Partners</div>
             <PartnerGrid />
           </div>
         </Container>
 
-        <Container heightRatio={-60} bgColor="#CCCCCC">
+        <Container heightRatio={-35} bgColor="#000000">
           <Footer />
         </Container>
         </div>
@@ -579,34 +579,116 @@ function PartnerGrid() {
 
 function Footer() {
   return (
-    <div className="w-full py-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {/* Left: company info */}
-        <div className="text-black">
-          <div className="text-[1.5rem] font-[800] mb-4">NEXTFOAM</div>
-          <div className="mb-2">
-            서울 금천구 디지털로9길 32 갑을그레이트밸리 A-1106호
+    <div className="w-full py-16 mt-[7rem]">
+      <div className="max-w-7xl mx-auto">
+        {/* Main Footer Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
+          {/* Left Column - Brand & Mission */}
+          <div className="lg:col-span-1 space-y-6">
+            <div className="flex items-center space-x-3">
+              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-sm">N</span>
+              </div>
+            </div>
+            <div className="text-[1.5rem] font-bold text-white leading-tight">
+              National Computational Fluid Dynamics Company
+            </div>
+            <div className="text-gray-300 text-sm leading-relaxed">
+              NEXTFOAM explores advanced CFD solutions in engineering, innovates for industrial benefit, and inspires the engineering world through cutting-edge technology.
+            </div>
+            <div className="space-y-2">
+              <a href="#" className="text-white text-sm hover:text-gray-300 transition-colors">About NEXTFOAM's Mission</a>
+              <div className="flex items-center text-white text-sm cursor-pointer hover:text-gray-300 transition-colors">
+                Join Us
+                <div className="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center ml-2">
+                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="mb-6">
-            Tel) +82-70-8796-3019 | E-mail) <a href="mailto:marketing@nextfoam.co.kr" className="underline">marketing@nextfoam.co.kr</a>
+
+          {/* Navigation Columns */}
+          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Column 1 */}
+            <div className="space-y-4">
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">Home</a>
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">News & Events</a>
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">Multimedia</a>
+              <div className="flex items-center space-x-2">
+                <a href="#" className="text-white text-sm hover:text-gray-300 transition-colors">NEXTFOAM+</a>
+                <span className="bg-red-500 text-white text-xs px-2 py-1 rounded">LIVE</span>
+              </div>
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">Projects</a>
+            </div>
+
+            {/* Column 2 */}
+            <div className="space-y-4">
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">CFD Solutions</a>
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">Engineering</a>
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">The Industry</a>
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">The Future</a>
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">Research</a>
+            </div>
+
+            {/* Column 3 */}
+            <div className="space-y-4">
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">Aerospace</a>
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">Technology</a>
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">Learning Resources</a>
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">About NEXTFOAM</a>
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">NEXTFOAM 한국어</a>
+            </div>
           </div>
-          <div className="mb-2 font-[600]">찾아오시는 길</div>
-          <div className="flex flex-col gap-1">
-            <a href="https://blog.nextfoam.co.kr" target="_blank" rel="noreferrer" className="underline">blog.nextfoam.co.kr</a>
-            <a href="https://blog.naver.com/nextfoam7" target="_blank" rel="noreferrer" className="underline">blog.naver.com/nextfoam7</a>
+
+          {/* Right Column - Follow & Social */}
+          <div className="lg:col-span-1 space-y-6">
+            <div className="text-white font-semibold text-lg">Follow NEXTFOAM</div>
+            <div className="flex space-x-3">
+              <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors cursor-pointer">
+                <span className="text-white font-bold text-sm">f</span>
+              </div>
+              <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors cursor-pointer">
+                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </div>
+              <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors cursor-pointer">
+                <span className="text-white font-bold text-sm">X</span>
+              </div>
+              <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors cursor-pointer">
+                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </div>
+            </div>
+            <div className="space-y-2">
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">More NEXTFOAM Social Accounts</a>
+              <a href="#" className="block text-white text-sm hover:text-gray-300 transition-colors">NEXTFOAM Newsletters</a>
+            </div>
           </div>
         </div>
 
-        {/* Right: social links */}
-        <div className="text-black">
-          <ul className="list-disc pl-5 space-y-3">
-            <li><a href="https://github.com" target="_blank" rel="noreferrer" className="underline">GitHub</a></li>
-            <li><a href="https://youtube.com" target="_blank" rel="noreferrer" className="underline">YouTube</a></li>
-            <li><a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="underline">LinkedIn</a></li>
-            <li><a href="https://www.instagram.com" target="_blank" rel="noreferrer" className="underline">Instagram</a></li>
-            <li><a href="https://twitter.com" target="_blank" rel="noreferrer" className="underline">X</a></li>
-            <li><a href="https://www.facebook.com" target="_blank" rel="noreferrer" className="underline">Facebook</a></li>
-          </ul>
+        {/* Bottom Section */}
+        <div className="border-t border-gray-600 pt-8">
+          <div className="flex flex-wrap gap-6 mb-6">
+            <a href="#" className="text-white text-sm hover:text-gray-300 transition-colors">Sitemap</a>
+            <a href="#" className="text-white text-sm hover:text-gray-300 transition-colors">For Media</a>
+            <a href="#" className="text-white text-sm hover:text-gray-300 transition-colors">Privacy Policy</a>
+            <a href="#" className="text-white text-sm hover:text-gray-300 transition-colors">FOIA</a>
+            <a href="#" className="text-white text-sm hover:text-gray-300 transition-colors">No FEAR Act</a>
+            <a href="#" className="text-white text-sm hover:text-gray-300 transition-colors">Office of the IG</a>
+            <a href="#" className="text-white text-sm hover:text-gray-300 transition-colors">Budget & Annual Reports</a>
+            <a href="#" className="text-white text-sm hover:text-gray-300 transition-colors">Agency Financial Reports</a>
+            <a href="#" className="text-white text-sm hover:text-gray-300 transition-colors">Contact NEXTFOAM</a>
+            <a href="#" className="text-white text-sm hover:text-gray-300 transition-colors">Accessibility</a>
+          </div>
+          <div className="space-y-1 text-gray-400 text-sm justify-start flex gap-[2rem]">
+            <span>Page Last Updated: Dec 15, 2024</span>
+            <span>Page Editor: NEXTFOAM Team</span>
+            <span>Responsible NEXTFOAM Official: Engineering Department</span>
+          </div>
         </div>
       </div>
     </div>
