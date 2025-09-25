@@ -1,5 +1,23 @@
 import Layout from "../components/Layout"
 import Header from "../components/Header"
+import { Container } from "../components/ui/Container"
+import { GridLayout } from "../components/ui/GridLayout"
+import { ImageOverlay } from "../components/ui/ImageOverlay"
+import { Button, ActionButton } from "../components/ui/Button"
+import { VideoSection, VideoSectionContained } from "../components/ui/VideoSection"
+import { NewsSection } from "../components/sections/NewsSection"
+import { GallerySection } from "../components/sections/GallerySection"
+import {
+  DateText,
+  MainTitle,
+  SectionTitle,
+  SubTitle,
+  BodyText,
+  PartnerTitle,
+  LargeWhiteTitle,
+  LargeWhiteSubTitle,
+  ButtonText
+} from "../components/ui/Text"
 
 export default function MainPage() {
   return (
@@ -7,42 +25,45 @@ export default function MainPage() {
       <div className="w-full h-[calc(100vh)] overflow-y-auto scroll-smooth no-scrollbar bg-black">
         <Container heightRatio={20} bgColor="#000000" fullBleed>
           <Header />
-
-          <div className="relative w-full h-full">
-            <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline>
-              <source src="/video/11_Kitiashvili_I_SC24_SunHelicityTour%20(1080p%20with%2030fps).mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-black/30" />
-            <div className="relative z-10 h-full flex items-center px-[7rem]">
-              <div className="flex flex-col gap-[1rem] max-w-[720px]">
-                <Title className="text-white">Computational Fluid Dynamics</Title>
-                <SubTitle className="text-white">
-                  Open source/Customized/AI CFD, Optimization, Digital twin, Photogrammetry<br />
-                NEXTFOAM is uniquely positioned to solve your engineering challenges. 
-              </SubTitle>
-              <Button>
-                EXPLORE →
-              </Button>
-              </div>
-            </div>
-          </div>
+          <VideoSection
+            videoSrc="/video/11_Kitiashvili_I_SC24_SunHelicityTour%20(1080p%20with%2030fps).mp4"
+            title="Computational Fluid Dynamics"
+            subtitle="Open source/Customized/AI CFD, Optimization, Digital twin, Photogrammetry<br />NEXTFOAM is uniquely positioned to solve your engineering challenges."
+            buttonText="EXPLORE →"
+          />
         </Container>
 
 
 
 
         <Container heightRatio={0} bgColor="#FFFFFF">
-          <div className="text-[2.5rem] font-[700] text-black mb-[4rem]">Main Business Area</div>
-          {/* <SubTitle>
-            We have done more than 300 consulting projects in the area of aerospace, <br />
-          marine, automotive, electronics, power, HVAC and so on…
-          </SubTitle> */}
-          <CardList>
-            <Card src="/images/Business-2.jpg" title="Aerospace" description="항공우주 산업을 위한 고성능 CFD 해석 및 설계 최적화 서비스" />
-            <Card src="/images/Business-2.jpg" title="Marine" description="해양 엔지니어링 분야의 유체역학 해석 및 선박 설계 지원" />
-            <Card src="/images/Business-2.jpg" title="Automotive" description="자동차 산업의 공기역학 해석 및 연비 최적화 솔루션" />
-            <Card src="/images/Business-2.jpg" title="Electronics" description="전자제품의 열관리 및 냉각 시스템 설계 및 해석" />
-          </CardList>
+          <SectionTitle>Main Business Area</SectionTitle>
+          <GridLayout cols={4} gap="1rem">
+            <ImageOverlay 
+              src="/images/Business-2.jpg" 
+              alt="Aerospace" 
+              title="Aerospace" 
+              description="항공우주 산업을 위한 고성능 CFD 해석 및 설계 최적화 서비스를 제공합니다. 초음속 유동, 연소 해석, 열전달 분석을 통해 항공기와 우주선의 성능을 극대화하고 안전성을 향상시킵니다. NASA, ESA 등 국제기관과의 협력을 통한 첨단 기술 개발과 실무 경험을 바탕으로 최적의 솔루션을 제시합니다." 
+            />
+            <ImageOverlay 
+              src="/images/Business-2.jpg" 
+              alt="Marine" 
+              title="Marine" 
+              description="해양 엔지니어링 분야의 유체역학 해석 및 선박 설계 지원을 전문으로 합니다. 선박 저항, 추진 효율, 파랑 하중 해석을 통해 연료 소비를 최소화하고 운항 안정성을 극대화합니다. 컨테이너선부터 유조선, 해양 구조물까지 다양한 해양 산업 분야의 엔지니어링 과제를 해결하여 친환경적이고 경제적인 해상 운송을 실현합니다." 
+            />
+            <ImageOverlay 
+              src="/images/Business-2.jpg" 
+              alt="Automotive" 
+              title="Automotive" 
+              description="자동차 산업의 공기역학 해석 및 연비 최적화 솔루션을 제공합니다. 차량 주변 유동장 분석, 실내 공조 시스템 설계, 엔진 냉각 시스템 최적화를 통해 연비 개선과 승차감 향상을 동시에 실현합니다. 전기차 배터리 열관리부터 수소차 연료 전지 시스템까지 미래 모빌리티 기술의 핵심 엔지니어링을 지원합니다." 
+            />
+            <ImageOverlay 
+              src="/images/Business-2.jpg" 
+              alt="Electronics" 
+              title="Electronics" 
+              description="전자제품의 열관리 및 냉각 시스템 설계 및 해석을 전문으로 합니다. 반도체, 디스플레이, 통신 장비의 열적 특성 분석을 통해 성능 저하를 방지하고 수명을 연장합니다. 자연 대류부터 강제 대류, 복합 열전달 해석까지 다양한 열관리 기법을 활용하여 컴팩트하고 효율적인 전자 시스템 설계를 지원합니다." 
+            />
+          </GridLayout>
         </Container>
 
 
@@ -52,57 +73,74 @@ export default function MainPage() {
             {/* 왼쪽 가독성 향상을 위한 그라데이션 오버레이 */}
             <div className="absolute left-0 top-0 h-full w-3/5 z-10 bg-gradient-to-r from-black/90 via-black/70 to-transparent pointer-events-none" />
             <div className="absolute inset-0 z-20 flex flex-col justify-center px-8">
-              <div className="text-white text-[5rem] font-[700] mb-[3.5rem] mt-[10rem] drop-shadow-lg leading-[5rem] ml-[4.5rem]">
-                Supercomputers <br/>
+              <LargeWhiteTitle>
+                Supercomputers <br />
                 & Wind Tunnels
-              </div>
-              <div className="text-white text-[1rem] font-normal max-w-4xl leading-relaxed drop-shadow-lg ml-[4.5rem] mb-[2rem]">
+              </LargeWhiteTitle>
+              <LargeWhiteSubTitle>
                 Stay up-to-date on the latest news from NASA–from Earth to the <br />
                 Moon, the Solar System and beyond.
-              </div>
-              <div className="text-white text-[1.5rem] font-[700] w-fit leading-relaxed drop-shadow-lg ml-[4.5rem] border-[0.01rem] border-white rounded-[0.2rem] px-[1rem] py-[0.5rem]">
+              </LargeWhiteSubTitle>
+              <ButtonText>
                 Try it now
-              </div>
+              </ButtonText>
             </div>
           </div>
         </Container>
 
 
         <Container heightRatio={17} bgColor="#FFFFFF">
-          <div className="text-[2.5rem] font-[700] text-black mb-[4rem]">Our Key Technologies</div>
-          <CardList>
-            <Card src="/images/Keys-1.png" title="Open Source CFD" description="OpenFOAM 기반의 오픈소스 CFD 솔버를 활용한 유체역학 해석" />
-            <Card src="/images/Keys-2.png" title="AI Integration" description="인공지능을 활용한 CFD 해석 자동화 및 최적화" />
-            <Card src="/images/Keys-3.png" title="Digital Twin" description="실시간 데이터 연동을 통한 디지털 트윈 구현" />
-            <Card src="/images/Keys-4.png" title="Photogrammetry" description="3D 스캐닝 및 포토그래메트리를 활용한 형상 모델링" />
-          </CardList>
+          <SectionTitle>Our Key Technologies</SectionTitle>
+          <GridLayout cols={4} gap="1rem">
+            <ImageOverlay 
+              src="/images/Keys-1.png" 
+              alt="Open Source CFD" 
+              title="Open Source CFD" 
+              description="OpenFOAM 기반의 오픈소스 CFD 솔버를 활용한 고성능 유체역학 해석 서비스를 제공합니다. 복잡한 기하학적 구조와 다양한 유동 조건에서 정확하고 신뢰할 수 있는 해석 결과를 도출합니다. 메시 생성부터 후처리까지 전체 CFD 워크플로우를 최적화하여 연구 개발 시간을 단축하고 비용을 절감합니다." 
+            />
+            <ImageOverlay 
+              src="/images/Keys-2.png" 
+              alt="AI Integration" 
+              title="AI Integration" 
+              description="인공지능과 머신러닝 기술을 활용한 CFD 해석 자동화 및 최적화 솔루션을 개발합니다. 딥러닝 기반 메시 생성, 신경망을 이용한 유동 예측, 강화학습을 통한 설계 최적화 등 차세대 AI-CFD 융합 기술을 통해 전통적인 엔지니어링 프로세스를 혁신하고 있습니다." 
+            />
+            <ImageOverlay 
+              src="/images/Keys-3.png" 
+              alt="Digital Twin" 
+              title="Digital Twin" 
+              description="실시간 데이터 연동을 통한 디지털 트윈 구현으로 물리적 시스템의 가상 복제본을 생성합니다. IoT 센서 데이터와 CFD 시뮬레이션을 결합하여 실시간 성능 모니터링, 예측적 유지보수, 가상 시나리오 테스트가 가능한 스마트 시스템을 구축합니다. 제조업부터 에너지, 건설까지 다양한 산업 분야에 적용됩니다." 
+            />
+            <ImageOverlay 
+              src="/images/Keys-4.png" 
+              alt="Photogrammetry" 
+              title="Photogrammetry" 
+              description="3D 스캐닝 및 포토그래메트리 기술을 활용한 정밀한 형상 모델링 서비스를 제공합니다. 드론 촬영, 레이저 스캐닝, 구조광 스캐닝 등 다양한 3D 데이터 수집 기술을 통해 복잡한 구조물의 디지털 복원이 가능합니다. CFD 해석을 위한 정확한 기하학적 모델 생성과 VR/AR 콘텐츠 제작을 지원합니다." 
+            />
+          </GridLayout>
         </Container>
 
 
         <Container heightRatio={-30} bgColor="#FFFFFF">
           <div className="w-full h-full flex">
             {/* Left Column - Text Content */}
-            <div className="flex-1 flex flex-col ">
-              <div className="text-[0.875rem] font-[600] text-gray-500 uppercase tracking-wide mb-2">
-                2025.09.23
-              </div>
-              <div className="text-[3rem] font-[900] text-black mb-4 leading-tight">
-                Latest News
-              </div>
-              <div className="text-[1.5rem] font-[700] text-black mb-4">
-                CFD Conference
-              </div>
-              <div className="text-[1rem] font-normal text-black mb-6 leading-relaxed w-[90%]">
+            <div className="flex-1 flex flex-col">
+              <DateText>2025.09.23</DateText>
+              <MainTitle>Latest News</MainTitle>
+              <SubTitle>CFD Conference</SubTitle>
+              <BodyText>
                 12th OKUCC(OpenFOAM Korea Users' Community Conference) 행사가 9월 18일 ~ 9월 19일 경주 더 케이 호텔에서 열립니다.
-              </div>
-              <div className="flex items-center text-red-500 text-[0.875rem] font-[600] cursor-pointer hover:text-red-600 transition-colors">
+              </BodyText>
+              <ActionButton
+                icon={
+                  <svg className="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                }
+              >
                 Browse Conference Archive
-                <svg className="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </div>
+              </ActionButton>
             </div>
-            
+
             {/* Right Column - Image */}
             <div className="flex-1 relative">
               <div className="relative w-full bg-gray-200 rounded-lg overflow-hidden" style={{ aspectRatio: '4/3' }}>
@@ -119,436 +157,42 @@ export default function MainPage() {
         </Container>
 
 
-
-
-
-
-
-
-
-
-        <Container heightRatio={20} bgColor="#FFFFFF">
-          <div className="w-full h-full flex flex-col">
-            {/* Header */}
-            <div className="flex justify-between items-center mt-[0rem] mb-[4rem]">
-              <div className="text-[3rem] font-[700] text-black">News & Events</div>
-            </div>
-
-            {/* Main Grid */}
-            <div className="flex-1 grid grid-cols-4 grid-rows-4 gap-3">
-              {/* Large Featured Item */}
-              <div className="col-span-2 row-span-2 relative group cursor-pointer">
-                <img src="/images/Keys-1.png" alt="Featured News" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-200%" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-4 h-4 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">NEWS RELEASE</span>
-                    <span className="text-white/60 text-xs">4 MIN READ</span>
-                  </div>
-                  <h3 className="text-white text-[1.25rem] font-bold leading-tight">NASA Selects Blue Origin to Deliver VIPER Rover to Moon's South Pole</h3>
-                </div>
-              </div>
-
-              {/* Medium Item 1 */}
-              <div className="col-span-1 row-span-1 relative group cursor-pointer">
-                <img src="/images/Keys-2.png" alt="News" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-200%" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="flex items-center gap-1 mb-1">
-                    <div className="w-3 h-3 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">ARTICLE</span>
-                    <span className="text-white/60 text-xs">2 MIN READ</span>
-                  </div>
-                  <h4 className="text-white text-sm font-bold leading-tight">Hubble Images Celestial Cigar's Smoldering Heart</h4>
-                </div>
-              </div>
-
-              {/* Medium Item 2 */}
-              <div className="col-span-1 row-span-1 relative group cursor-pointer">
-                <img src="/images/Keys-3.png" alt="News" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-200%" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="flex items-center gap-1 mb-1">
-                    <div className="w-3 h-3 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">ARTICLE</span>
-                    <span className="text-white/60 text-xs">5 MIN READ</span>
-                  </div>
-                  <h4 className="text-white text-sm font-bold leading-tight">NASA's Deep Space Communications Demo Exceeds Expectations</h4>
-                </div>
-              </div>
-
-              {/* Medium Item 3 */}
-              <div className="col-span-1 row-span-1 relative group cursor-pointer">
-                <img src="/images/Keys-4.png" alt="News" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-200%" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="flex items-center gap-1 mb-1">
-                    <div className="w-3 h-3 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">ARTICLE</span>
-                    <span className="text-white/60 text-xs">6 MIN READ</span>
-                  </div>
-                  <h4 className="text-white text-sm font-bold leading-tight">NASA's Chandra Finds Black Hole With Tremendous Growth</h4>
-                </div>
-              </div>
-
-              {/* Bottom Row - Small Items */}
-              <div className="col-span-4 row-span-1 grid grid-cols-4 gap-3 mt-[4rem]">
-                {[
-                  { src: "/images/Keys-1.png", title: "Building a Lunar Network: Johnson Tests Wireless Technologies", time: "2 MIN READ", category: "ARTICLE" },
-                  { src: "/images/Keys-2.png", title: "NASA's Parker Solar Probe Sails Through 25th Sun Flyby", time: "2 MIN READ", category: "BLOG" },
-                  { src: "/images/Keys-3.png", title: "NASA's Hubble Sees White Dwarf Eating Piece of Pluto-Like Object", time: "5 MIN READ", category: "ARTICLE" },
-                  { src: "/images/Keys-4.png", title: "What's Up: September 2025 Skywatching Tips from NASA", time: "3 MIN READ", category: "ARTICLE" }
-                ].map((item, index) => (
-                  <div key={index} className="flex gap-3 cursor-pointer hover:opacity-80 transition-opacity">
-                    <div className="w-[6rem] h-[6rem] rounded-full overflow-hidden flex-shrink-0 relative">
-                      <img src={item.src} alt={item.title} className="w-full h-full object-cover" />
-                      <div className="absolute inset-0 rounded-full shadow-[inset_0_0px_40px_rgba(0,0,0,0.1)]"></div>
-                    </div>
-                    <div className="flex-1 flex flex-col justify-start">
-                      <span className="text-gray-600 text-xs mb-1">{item.time}</span>
-                      <h5 className="text-black text-xs font-bold leading-tight mb-1">{item.title}</h5>
-                      <div className="flex items-center gap-1">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                        <span className="text-gray-500 text-xs">{item.category}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+        <Container heightRatio={-20} bgColor="#FFFFFF">
+          <NewsSection />
         </Container>
-
-
-
-
-
-
-
-
 
 
         <Container heightRatio={-25} bgColor="#000000">
-          <div className="relative w-full h-full">
-            <video className="absolute inset-0 w-full h-full object-contain bg-black" style={{ objectPosition: '100% center' }} autoPlay muted loop playsInline>
-              <source src="/video/Main-2.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 flex items-center">
-              <div className="flex flex-col gap-[1rem] max-w-[720px]">
-                <Title className="text-white">Optimization & Digital Twin</Title>
-                <SubTitle className="text-white">
-                  Open source/Customized/AI CFD, Optimization, Digital twin, Photogrammetry<br />
-            NEXTFOAM is uniquely positioned to solve your engineering challenges. 
-          </SubTitle>
-          <Button>
-            EXPLORE →
-          </Button>
-              </div>
-            </div>
-          </div>
+          <VideoSectionContained
+            videoSrc="/video/Main-2.mp4"
+            title="Optimization & Digital Twin"
+            subtitle="Open source/Customized/AI CFD, Optimization, Digital twin, Photogrammetry<br />NEXTFOAM is uniquely positioned to solve your engineering challenges."
+            buttonText="EXPLORE →"
+          />
         </Container>
 
 
-
-        
-
-        <Container heightRatio={20} bgColor="#F9F9F9">
-          <div className="w-full h-full flex flex-col">
-            {/* Header */}
-            <div className="flex justify-between items-center mt-24 mb-[4rem]">
-              <div className="text-[3rem] font-[700] text-black">CFD Gallery</div>
-            </div>
-
-            {/* Main Grid */}
-            <div className="flex-1 grid grid-cols-6 grid-rows-4 gap-3">
-              {/* Large Featured Item */}
-              <div className="col-span-2 row-span-2 relative group cursor-pointer">
-                <img src="/images/gallery/1.gif" alt="CFD image" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-200%" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-4 h-4 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">CFD</span>
-                    <span className="text-white/60 text-xs">Gallery</span>
-                  </div>
-                  <h3 className="text-white text-[1.25rem] font-bold leading-tight">Supersonic forward step</h3>
-                </div>
-              </div>
-
-              {/* Medium Item 1 */}
-              <div className="col-span-2 row-span-2 relative group cursor-pointer">
-                <img src="/images/gallery/2.gif" alt="Gallery" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-200%" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="flex items-center gap-1 mb-1">
-                    <div className="w-3 h-3 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">CFD</span>
-                    <span className="text-white/60 text-xs">Indoor fire</span>
-                  </div>
-                  <h4 className="text-white text-[1.25rem] font-bold leading-tight">Indoor fire</h4>
-                </div>
-              </div>
-
-              {/* Medium Item 2 */}
-              <div className="col-span-1 row-span-1 relative group cursor-pointer">
-                <img src="/images/gallery/3.gif" alt="Gallery" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-200%" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="flex items-center gap-1 mb-1">
-                    <div className="w-3 h-3 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">CFD</span>
-                    <span className="text-white/60 text-xs">Store separation</span>
-                  </div>
-                  <h4 className="text-white text-[1.25rem] font-bold leading-tight">Store separation</h4>
-                </div>
-              </div>
-
-              {/* Medium Item 3 */}
-              <div className="col-span-1 row-span-1 relative group cursor-pointer">
-                <img src="/images/gallery/4.gif" alt="Gallery" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-200%" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="flex items-center gap-1 mb-1">
-                    <div className="w-3 h-3 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">CFD</span>
-                    <span className="text-white/60 text-xs">Dam spillway</span>
-                  </div>
-                  <h4 className="text-white text-[1.25rem] font-bold leading-tight">Dam spillway</h4>
-                </div>
-              </div>
-
-              {/* Medium Item 3 */}
-              <div className="col-span-1 row-span-1 relative group cursor-pointer">
-                <img src="/images/gallery/5.gif" alt="Gallery" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-200%" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="flex items-center gap-1 mb-1">
-                    <div className="w-3 h-3 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">CFD</span>
-                    <span className="text-white/60 text-xs">Dam spillway</span>
-                  </div>
-                  <h4 className="text-white text-[1.25rem] font-bold leading-tight">Dam spillway</h4>
-                </div>
-              </div>
-
-              {/* Medium Item 3 */}
-              <div className="col-span-1 row-span-1 relative group cursor-pointer">
-                <img src="/images/gallery/6.gif" alt="Gallery" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-200%" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="flex items-center gap-1 mb-1">
-                    <div className="w-3 h-3 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">CFD</span>
-                    <span className="text-white/60 text-xs">Dam spillway</span>
-                  </div>
-                  <h4 className="text-white text-[1.25rem] font-bold leading-tight">Dam spillway</h4>
-                </div>
-              </div>
-
-              {/* Medium Item 3 */}
-              <div className="col-span-1 row-span-1 relative group cursor-pointer">
-                <img src="/images/gallery/7.gif" alt="Gallery" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-200%" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="flex items-center gap-1 mb-1">
-                    <div className="w-3 h-3 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">CFD</span>
-                    <span className="text-white/60 text-xs">Dam spillway</span>
-                  </div>
-                  <h4 className="text-white text-[1.25rem] font-bold leading-tight">Dam spillway</h4>
-                </div>
-              </div>
-
-              {/* Medium Item 3 */}
-              <div className="col-span-1 row-span-1 relative group cursor-pointer">
-                <img src="/images/gallery/8.gif" alt="Gallery" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-200%" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="flex items-center gap-1 mb-1">
-                    <div className="w-3 h-3 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">CFD</span>
-                    <span className="text-white/60 text-xs">Dam spillway</span>
-                  </div>
-                  <h4 className="text-white text-[1.25rem] font-bold leading-tight">Dam spillway</h4>
-                </div>
-              </div>
-
-              {/* Medium Item 3 */}
-              <div className="col-span-1 row-span-1 relative group cursor-pointer">
-                <img src="/images/gallery/9.gif" alt="Gallery" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-200%" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="flex items-center gap-1 mb-1">
-                    <div className="w-3 h-3 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">CFD</span>
-                    <span className="text-white/60 text-xs">Dam spillway</span>
-                  </div>
-                  <h4 className="text-white text-[1.25rem] font-bold leading-tight">Dam spillway</h4>
-                </div>
-              </div>
-
-              {/* Medium Item 3 */}
-              <div className="col-span-1 row-span-1 relative group cursor-pointer">
-                <img src="/images/gallery/10.gif" alt="Gallery" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/15 to-200%" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="flex items-center gap-1 mb-1">
-                    <div className="w-3 h-3 bg-white/20 rounded-full flex items-center justify-center">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white/80 text-xs font-medium">CFD</span>
-                    <span className="text-white/60 text-xs">Dam spillway</span>
-                  </div>
-                  <h4 className="text-white text-[1.25rem] font-bold leading-tight">Dam spillway</h4>
-                </div>
-              </div>
-
-              <div className=" flex text-[2rem] font-[500] col-span-2 row-span-2 relative group cursor-pointer px-2 py-1 text-black h-[50%] justify-center items-center text-center rounded-sm transition-colors duration-300 ease-in-out hover:bg-black hover:text-white border-1">
-                View More 
-                <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center ml-2 filter transition duration-300 group-hover:invert">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </div>
-
-             
-            </div>
-            
-          </div>
+        <Container heightRatio={-15} bgColor="#F9F9F9">
+          <GallerySection />
         </Container>
 
 
         <Container heightRatio={110} bgColor="#FFFFFF">
           <div className="w-full h-full flex flex-col">
-            <div className="text-[2.5rem] font-[700] text-black mb-[3rem] mt-[4rem]">Our Partners</div>
+            <PartnerTitle>Our Partners</PartnerTitle>
             <PartnerGrid />
           </div>
         </Container>
 
+
         <Container heightRatio={-35} bgColor="#000000">
           <Footer />
         </Container>
-        </div>
+      </div>
     </Layout>
   )
 }
 
-function CardList({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="grid grid-cols-4 gap-[1rem] w-full">
-      {children}
-    </div>
-  )
-}
-
-function Row({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex flex-row gap-[1rem]">
-      {children}
-    </div>
-  )
-}
-
-function Column({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex flex-col gap-[1rem] justify-center">
-      {children}
-    </div>
-  )
-}
-
-function Card({ src, title, description }: { src: string, title?: string, description?: string }) {
-  return (
-    <div className="w-full bg-white overflow-hidden relative group cursor-pointer" style={{ aspectRatio: '4/6' }}>
-      <img src={src} alt="card" className="w-full h-full object-cover transition-all duration-300 group-hover:brightness-50" />
-
-      {/* 기본 텍스트 오버레이와 화살표 */}
-      {title && (
-        <div className="absolute bottom-0 left-0 right-0 z-20 px-4 pb-12 pt-[200%] w-full bg-[linear-gradient(to_top,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.45)_20%,rgba(0,0,0,0.15)_40%,rgba(0,0,0,0.1)_60%,rgba(0,0,0,0)_100%)]">
-          <div className="flex items-center justify-between">
-            <h3 className="text-white text-[1.75rem] font-[600] drop-shadow-lg">{title}</h3>
-            <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* 호버 시 설명 텍스트 */}
-      {description && (
-        <div className="absolute top-0 left-0 right-0 bottom-0 z-10 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 pointer-events-none">
-          <p className="text-white text-[1.25rem] text-center leading-relaxed">{description}</p>
-        </div>
-      )}
-    </div>
-  )
-}
-
-function Container({ children, heightRatio = 1, bgColor = "#ffffff", fullBleed = false }: { children: React.ReactNode, heightRatio?: number, bgColor?: string, fullBleed?: boolean }) {
-  return (
-    <section
-      className={"w-full flex flex-col justify-center " + (fullBleed ? "px-0" : "px-[7rem]")}
-      style={{ minHeight: `${100 + heightRatio}vh`, height: `${100 + heightRatio}vh`, backgroundColor: bgColor }}
-    >
-      {children}
-    </section>
-  )
-}
-
-function Title({ children, className }: { children: React.ReactNode, className?: string }) {
-  return (
-    <div className={"text-black text-[3rem] font-black " + className}>
-      {children}
-    </div>
-  )
-}
-
-function SubTitle({ children, className }: { children: React.ReactNode, className?: string }) {
-  return (
-    <div className={"text-black text-[1.125rem] font-normal " + className}>
-      {children}
-    </div>
-  )
-}
-
-
-function Button({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="text-white text-[.875rem] mt-[2rem] py-[0.5rem] px-[1rem] border-[0.01rem] border-white rounded-[0.2rem] w-fit">
-      {children}
-    </div>
-  )
-}
 
 
 function PartnerGrid() {
@@ -651,7 +295,7 @@ function Footer() {
               </div>
               <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors cursor-pointer">
                 <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
               </div>
               <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors cursor-pointer">
@@ -659,7 +303,7 @@ function Footer() {
               </div>
               <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-500 transition-colors cursor-pointer">
                 <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                 </svg>
               </div>
             </div>
