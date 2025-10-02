@@ -2,7 +2,8 @@ import { useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
+import { ErrorBoundary } from './components/ErrorBoundary'
 
 function RootWrapper() {
   useEffect(() => {
@@ -36,9 +37,11 @@ function RootWrapper() {
   }, [])
 
   return (
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ErrorBoundary>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </ErrorBoundary>
   )
 }
 
