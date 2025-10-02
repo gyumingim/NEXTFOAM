@@ -2,8 +2,8 @@ import Layout from "../../components/Layout"
 import Header from "../../components/Header"
 
 // Import consulting images
-const consultingImages = import.meta.glob('../assets/consulting/*', { eager: true, as: 'url' })
-const imageUrls = Object.values(consultingImages)
+const consultingImages = import.meta.glob('../assets/consulting/*', { eager: true, query: '?url', import: 'default' })
+const imageUrls = Object.values(consultingImages) as string[]
 
 export default function BaramPage() {
     const features = [

@@ -528,7 +528,7 @@ export default function MainPage() {
 
 function PartnerGrid() {
   const urls = Object.values(
-    import.meta.glob('../assets/logo/*', { eager: true, as: 'url' })
+    import.meta.glob('../assets/logo/*', { eager: true, query: '?url', import: 'default' })
   ) as string[]
 
   // react.svg 등 내부 아이콘은 제외하고 고객사 파일만 필터링 (대략적인 필터)
