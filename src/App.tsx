@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import './App.css'
 import MainPage from './pages/MainPage'
 import ConsultPage from './pages/Consulting/ConsultPage'
@@ -41,6 +41,9 @@ function App() {
       <Route path="/community/okucc" element={<OKUCCPage/>} />
 
       <Route path="/contact" element={<ContactUsPage/>} />
+      
+      {/* Catch all routes and redirect to home */}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
 }
